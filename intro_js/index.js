@@ -188,3 +188,23 @@
 // const res = eAgora()
 // res.f1()
 // res.f2()
+// JSON: JavaScript Object Notation
+//Uma pessoa que se chama joão e tem 17 anos
+// let pessoa = {
+//     nome: 'João',
+//     idade: 17
+// }
+// //acesso ao objeto
+// console.log(pessoa.nome)
+// console.log(pessoa['idade'])
+//Uma pessoa se chama Maria, tem 21 anos e mora na rua B, número 50
+const pessoa = {
+    nome: 'Maria',
+    idade: 21,
+    endereco:{
+        rua: 'Rua B',
+        numero: 50
+    }
+}
+console.log(pessoa.endereco.rua)
+console.log(pessoa['endereco']['numero'])
