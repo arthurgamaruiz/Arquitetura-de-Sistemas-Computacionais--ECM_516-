@@ -143,3 +143,48 @@
 // falarOi('Carlos')
 // const falarOi = nome => console.log(`Oi, ${nome}`)             // uma instrução no corpo --> chaves podem ser omitidas.
 // const somar = (a,b) =>  a+b;                                   // return está implícito. Com chaves --> return obrigatório.
+// let umaFuncao = function(){
+//     console.log("Fui armazenada em uma variável")
+//     return () => 'oi'
+// }
+// umaFuncao()
+// function f(funcao){
+//     console.log(funcao())
+// }
+// f(umaFuncao())
+
+// function f(funcao){
+//     funcao()
+// }
+// function g(){
+//     function outraFuncao(){
+//         console.log("Criada por g")
+//         return () => 'A'
+//     }
+//     return outraFuncao()
+// }
+// const resultado = g()
+// f(resultado)
+// console.log(resultado())
+//Closure
+// function f(idade){
+//     let nome = 'João'
+//     function g(){
+//         console.log(`Meu nome é ${nome} e tenho ${idade} anos.`)
+//     }
+//     return g
+// }
+
+// const res = f(17)
+// res()
+// const eAgora = () => {
+//     let cont = 1
+//     const f1 = () => console.log(cont)
+//     cont++
+//     const f2 = () => console.log(cont)
+//     cont++
+//     return {f1, f2}
+// }
+// const res = eAgora()
+// res.f1()
+// res.f2()
