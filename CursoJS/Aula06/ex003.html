@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiro documento</title>
+    <style>
+        body{
+            background-color: rgb(108, 108, 192);
+            color: white;       /* comentário CSS */
+            font: normal 20pt Arial;
+        }
+        h1{
+            color: rgb(201, 66, 66);
+        }
+        p{
+            color: aqua;
+            font: italic 11pt Courier;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Olá, mundo! (Título)</h1> <!--Comentário html-->
+    <p>
+        Parágrafo 
+    </p>
+    <p>
+        Mais um parágrafo
+    </p>
+    <script>
+        // Number --> String 
+        //String(n) ou n.toString()
+        let n1 = Number(window.prompt("Digite um número: ")) //conversão para number
+        let n2 = Number(window.prompt("Digite outro número: "))
+        let soma = n1 + n2;     
+        window.alert(`Soma: ${soma}`);
+    </script>
+</body>
+</html>
