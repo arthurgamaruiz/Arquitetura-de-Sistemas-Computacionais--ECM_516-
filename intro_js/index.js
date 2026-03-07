@@ -94,9 +94,11 @@
 // }
 
 // métodos utilitários
-// const nomes = ["Ana Maria","Antonio", "Rodrigo", "Alex", "Cristina"];
-// const apenasComA = nomes.filter((n) => n.startsWith("A"));      //retorna outro vetor, apenas com os nomes iniciados com "A"
-// console.log(apenasComA)
+//  const nomes = ["Ana Maria","Antonio", "Rodrigo", "Alex", "Cristina"];
+ //const apenasComA = nomes.filter((n) => n.startsWith("A"));      //retorna outro vetor, apenas com os nomes iniciados com "A"
+ //console.log(apenasComA)
+//  const iniciais = nomes.map(function (nome){return nome.charAt(0)})
+//  console.log(iniciais)      
 
 // const res = nomes.map((nome) => nome.charAt(0));                //primeiro caracter de cada nome
 // console.log(res)
@@ -137,7 +139,7 @@
 // // arrow function (preferível)
 // const falarOi = () => {console.log('oi')}
 // falarOi()
-// const falarOi = nome => {console.log(`Oi, ${nome}`)}        // um parâmetro --> parênteses podem ser omitidos 
+// const falarOi = nome => {console.log(`Oi, ${nome}`)}            // um parâmetro --> parênteses podem ser omitidos 
 // falarOi('Carlos')
-// const falarOi = nome => console.log(`Oi, ${nome}`)               // uma instrução no corpo --> chaves podem ser omitidas.
+// const falarOi = nome => console.log(`Oi, ${nome}`)             // uma instrução no corpo --> chaves podem ser omitidas.
 // const somar = (a,b) =>  a+b;                                   // return está implícito. Com chaves --> return obrigatório.
