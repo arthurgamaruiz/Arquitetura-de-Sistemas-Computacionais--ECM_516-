@@ -17,15 +17,24 @@
     </style>
 </head>
 <body>
-    <div id = "area" onclick="clicar()">
+    <div id = "area" onclick="clicar()" onmouseenter="entrar()" onmouseout="sair()">
         Interaja...
     </div>
 
     <script>
+        let a = window.document.getElementById('area')
         //quando clicar, muda o texto da div
         function clicar(){
-            let a = window.document.getElementById('area')
+            
             a.innerText = 'Clicou';
+        }
+        //quando o cursor do mouse entrar na div
+        function entrar(){
+            a.innerText = 'Entrou na div'
+        }
+        //quando cursor sair da div
+        function sair(){
+            a.innerText = 'Saiu da div'
         }
     </script>
 </body>
