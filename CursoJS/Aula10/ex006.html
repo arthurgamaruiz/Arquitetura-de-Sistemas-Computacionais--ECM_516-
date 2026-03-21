@@ -17,8 +17,16 @@
     </style>
 </head>
 <body>
-    <div id = "area">
+    <div id = "area" onclick="clicar()">
         Interaja...
     </div>
+
+    <script>
+        //quando clicar, muda o texto da div
+        function clicar(){
+            let a = window.document.getElementById('area')
+            a.innerText = 'Clicou';
+        }
+    </script>
 </body>
 </html>
