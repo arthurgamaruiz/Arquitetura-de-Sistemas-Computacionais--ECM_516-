@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const axios = require('axios')
 app.use(express.json()) //middleWare
 
 let id = 0
@@ -20,7 +21,7 @@ app.get('/lembretes', (req, res) => {
     res.json(lembretes)
 })
 
-app.post('/lembretes', (req, res) => {
+app.post('/lembretes', async (req, res) => {
     //incrementar o id
     id += 1
     //extrair a propriedade texto do corpo da req
@@ -30,6 +31,10 @@ app.post('/lembretes', (req, res) => {
         id: id,
         texto: texto
     }
+    await axios.post('http://localhost:10000/eventos', {
+        tipo: "LembreteCriado", 
+        lembretes: lembrete
+    })
     //responder trocando o status para 201 e, no corpo, concluir o lembrete criado
     res.status(201).json(lembretes[id])
 })
