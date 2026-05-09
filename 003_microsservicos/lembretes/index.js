@@ -31,9 +31,10 @@ app.post('/lembretes', async (req, res) => {
         id: id,
         texto: texto
     }
+    //no material de mss, caminho 3 da Figura 4.3.11
     await axios.post('http://localhost:10000/eventos', {
         tipo: "LembreteCriado", 
-        lembretes: lembrete
+        payload: {contador, texto}
     })
     //responder trocando o status para 201 e, no corpo, concluir o lembrete criado
     res.status(201).json(lembretes[id])
