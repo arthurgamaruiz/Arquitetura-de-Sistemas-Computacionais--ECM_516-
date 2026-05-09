@@ -10,7 +10,7 @@ app.use(express.json())                     //funcção middleware
 //usando a axios 
 app.post('/eventos', async (req, res) => {
     const evento = req.body                                             //extraindo o corpo da requisição
-
+    //no material de mss, caminho 4 da Figura 4.3.11
     try{
         await axios.post('http://localhost:4000/eventos', evento)       //envia o evento para o microsserviço de lembretes
     }
