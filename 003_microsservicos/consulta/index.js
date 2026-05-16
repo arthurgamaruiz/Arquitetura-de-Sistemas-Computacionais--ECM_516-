@@ -16,20 +16,20 @@ const funcoes = {
     ObservacaoCriada: (observacao) => {
         //observacoes é uma chave do lembrete com um id específico
         //ou retorna uma lista existente ou uma vazia 
-        const observacoes = baseConsulta[observacao.lembreteId]["observacoes"] || []
+        const observacoes = baseConsulta[observacao.lembreteId]['observacoes'] || []
 
         //observacoes é uma lista, contendo objetos js com id (ibObs), texto e lembreteId como chaves
         //cadastra uma observação
         observacoes.push(observacao)
 
         //adiciona a observação na base de consulta 
-        baseConsulta[observacao.lembreteId]["observacoes"] = observacoes
+        baseConsulta[observacao.lembreteId]['observacoes'] = observacoes
     }
 }
 
 //obtém a base completa 
 app.get('/lembretes', (req, res) => {
-    res.status(200).send(baseConsulta)
+    res.status(200).json(baseConsulta)
 })
 
 //recebe eventos 

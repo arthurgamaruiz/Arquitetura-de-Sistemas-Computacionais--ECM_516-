@@ -4,7 +4,7 @@ const app = express()
 app.use(express.json()) //middleware
 
 const lembretes = { }
-let id = 0
+let contador = 0
 /*
 {
 	1: {
@@ -19,7 +19,7 @@ let id = 0
 */
 
 app.get('/lembretes', (req, res) => {
-	res.json(lembretes)
+	res.send(lembretes)
 })
 
 app.post('/lembretes', async (req, res) => {
@@ -27,20 +27,15 @@ app.post('/lembretes', async (req, res) => {
     // extrair propriedade texto do corpo da requisicao
     // cadastrar na base, tal qual mostra o exemplo
     // responder trocando o status para 201 e, no corpo, incluir o lembrete criado
-    id++
+    contador++
     const { texto } = req.body
-    const lembrete = {
-        id,
-        texto
-    }
-    lembretes[id] = lembrete
-
+    lembretes[contador] = {contador, texto}
     await axios.post('http://localhost:10000/eventos', {
         tipo : "LembreteCriado",
-        dados : lembrete
+        dados: {contador, texto}
     })
 
-    res.status(201).json(lembrete)
+    res.status(201).send(lembretes[contador])
       
 })
 
