@@ -10,6 +10,7 @@ app.use(express.json())                     //funcção middleware
 //usando a axios 
 app.post('/eventos', async (req, res) => {
     const evento = req.body                                             //extraindo o corpo da requisição
+    console.log(evento);                           
     //no material de mss, caminho 4 da Figura 4.3.11
     try{
         await axios.post('http://localhost:4000/eventos', evento)       //envia o evento para o microsserviço de lembretes
@@ -19,8 +20,11 @@ app.post('/eventos', async (req, res) => {
         await axios.post('http://localhost:5000/eventos', evento)       //envia o evento para o microsservico de observações
     }
     catch(e){}
+    try{
+        await axios.post('http://localhost:6000/eventos', evento)       //evento para consulta   
+    } 
+    catch(e){}
     res.end()
-    res.status(200).json({msd: "Sucesso!"})
 })
 
 //colocar o barramento de eventos em funcionamento na porta 10000
