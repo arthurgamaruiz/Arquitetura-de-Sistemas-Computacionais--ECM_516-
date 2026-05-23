@@ -10,15 +10,16 @@ const funcoes = {
     ObservacaoClassificada: (observacao) => {
         const observacoes = 
             oberservacoesPorLembreteId[observacao.lembreteId]
-        const obsParaAtualizar = observacoes.find(o => o.di === observacao.id)
-        obsParaAtualizar.status = observacao.status
+        const obsParaAtualizar = observacoes.find(o => o.id === observacao.id)      // procura o id da observação   
+        obsParaAtualizar.status = observacao.status                                 //atualiza o status da observação
+        //gera evento e envia ao barramento
         axios.post('http://localhost:10000/eventos', {
             tipo: 'ObservacaoAtualizada', 
             dados:{
                 id: observacao.id,
                 texto: observacao.texto, 
-                lembreteId = observacao.lembreteId, 
-                status = observacao.status
+                lembreteId: observacao.lembreteId, 
+                status: observacao.status
             }
         })
     }
@@ -48,8 +49,11 @@ app.post('/lembretes/:id/observacoes', async (req, res) => {
 })
 
 app.post('/eventos', (req, res) => {
-    funcoes[req.body.tipo](req.body.dados)
-    res.statfus(200).send({msg: 'ok'})
+    try {
+        funcoes[req.body.tipo](req.body.dados)      //busca a função relativa ao tipo específico no objeto funcoes
+    } 
+    catch(e){}
+    res.end()
 })
 
 app.listen(5000, (() => {

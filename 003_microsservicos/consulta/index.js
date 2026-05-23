@@ -24,6 +24,13 @@ const funcoes = {
 
         //adiciona a observação na base de consulta 
         baseConsulta[observacao.lembreteId]['observacoes'] = observacoes
+    },
+    //lida com o evento de observação atualizada
+    ObservacaoAtualizada: (observacao) => {
+        const observacoes = 
+            baseConsulta[observacao.lembreteId]['observacoes']
+        const indice = observacoes.findIndex((o) => o.id === observacao.id)
+        observacoes[indice] = observacao;
     }
 }
 
