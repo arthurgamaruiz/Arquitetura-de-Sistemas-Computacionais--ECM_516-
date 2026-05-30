@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 
+const axios = require('axios')      //fazer requisição após mss voltar ao ar
 const baseConsulta = {};
 
 //mapa de funções -> chaves são os tipos dos respectivos eventos.
@@ -50,4 +51,13 @@ app.post('/eventos', (req, res) => {
     res.end()
 })
 
-app.listen(6000, () => console.log("Consultas. Porta 6000."))
+app.listen(6000, async () => {
+    console.log("Consultas. Porta 6000.")
+    const {data} = await axios.get("http://localhost:10000/eventos")        //axios entrega os dados na propriedade data
+    data.forEach((evento, indice, colecao) => {
+        try {
+            funcoes[evento.tipo](evento.dados)                              //acessa o mapa de funções 
+        } catch (err) {}
+    })
+    
+})
