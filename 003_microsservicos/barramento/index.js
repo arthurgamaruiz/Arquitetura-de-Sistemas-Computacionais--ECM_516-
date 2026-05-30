@@ -4,12 +4,15 @@ const express = require('express')          //recebe requisições http
 const app = express()                       //objeto app
 app.use(express.json())                     //funcção middleware
 
+const eventos = []                          //armazena eventos 
+
 //endpoint POST /eventos 
 //extrair evento da requisição
 //enviar o evento para ambos os mss de lembretes e observações
 //usando a axios 
 app.post('/eventos', async (req, res) => {
     const evento = req.body                                             //extraindo o corpo da requisição
+    eventos.push(evento)                                                //adiciona evento à lista 
     console.log(evento);                           
     //no material de mss, caminho 4 da Figura 4.3.11
     try{
@@ -31,6 +34,10 @@ app.post('/eventos', async (req, res) => {
     res.end()
 })
 
+//endoint para obter eventos 
+app.get('/eventos', (req, res) => {
+    res.json(eventos)
+})
 //colocar o barramento de eventos em funcionamento na porta 10000
 const port = 10000
 app.listen(port, () => {
