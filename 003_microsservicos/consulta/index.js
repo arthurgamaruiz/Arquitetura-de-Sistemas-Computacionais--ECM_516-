@@ -53,7 +53,7 @@ app.post('/eventos', (req, res) => {
 
 app.listen(6000, async () => {
     console.log("Consultas. Porta 6000.")
-    const {data} = await axios.get("http://localhost:10000/eventos")        //axios entrega os dados na propriedade data
+    const {data} = await axios.get("http://172.17.0.2:10000/eventos")        //axios entrega os dados na propriedade data
     data.forEach((evento, indice, colecao) => {
         try {
             funcoes[evento.tipo](evento.dados)                              //acessa o mapa de funções 
